@@ -1,0 +1,11 @@
+services:
+  cups:
+    build: .
+    ports:
+      - 631:631
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - ./data:/etc/cups
+      - /dev/bus/usb:/dev/bus/usb
+      - /run/dbus:/run/dbus
